@@ -6,20 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="main.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="anime.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 </head>
 
 <body>
-    <div class="wrapper">
-        <h1 class="ml1">
-            <span class="text-wrapper">
-                <span class="line line1"></span>
-                <span class="letters">CHASE ALEXANDER</span>
-                <span class="line line2"></span>
-            </span>
-        </h1>
+    <div class="wrapper front">
+        <div class="content center">
+            <h1 class="ml11">
+                <span class="text-wrapper">
+                    <span class="line line1"></span>
+                    <span class="letters">Chase Alexander</span>
+                </span>
+            </h1>
+        </div>
+        <div class="arrow center"><i id="arrow" class="fa fa-angle-double-down fa-2x"></i></div>
     </div>
     <section>
         <div></div>
@@ -43,8 +46,8 @@
     <script>
         const colors = ['#173FBF', '#30639B', '#3CAEA3', '#F6D55C', '#ED553B'];
 
-        var textWrapper = document.querySelector('.ml1 .letters');
-        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+        var textWrapper = document.querySelector('.ml11 .letters');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
 
         var onLoadTimeline = anime.timeline({
             easing: 'easeOutExpo',
@@ -62,6 +65,8 @@
             .add({
                 targets: 'section div',
                 width: '95%',
+                translateX: '2.5%',
+                opacity: 0.6,
             })
             .add({
                 targets: '.ml1 .letter',
@@ -81,7 +86,27 @@
                 offset: '-=875',
                 delay: (el, i, l) => 80 * (l - i)
             })
-
+            .add({
+                targets: '.ml11 .line',
+                scaleY: [0, 1],
+                opacity: [0.5, 1],
+                easing: "easeOutExpo",
+                duration: 700
+            })
+            .add({
+                targets: '.ml11 .line',
+                translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
+                easing: "easeOutExpo",
+                duration: 700,
+                delay: 100
+            }).add({
+                targets: '.ml11 .letter',
+                opacity: [0, 1],
+                easing: "easeOutExpo",
+                duration: 600,
+                offset: '-=775',
+                delay: (el, i) => 34 * (i + 1)
+            });
 
         document.querySelector('h1').addEventListener('mouseover', () => {
 
