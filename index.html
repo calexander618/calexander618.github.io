@@ -1,1 +1,93 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="anime.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 class="ml1">
+            <span class="text-wrapper">
+                <span class="line line1"></span>
+                <span class="letters">CHASE ALEXANDER</span>
+                <span class="line line2"></span>
+            </span>
+        </h1>
+    </div>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <p class="reveal">Hello from paragraph!</p>
+
+    <script>
+        window.sr = ScrollReveal();
+        sr.reveal('.reveal');
+
+    </script>
+    <script>
+        const colors = ['#173FBF', '#30639B', '#3CAEA3', '#F6D55C', '#ED553B'];
+
+        var textWrapper = document.querySelector('.ml1 .letters');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        var onLoadTimeline = anime.timeline({
+            easing: 'easeOutExpo',
+            duration: 750
+        });
+
+        onLoadTimeline.add({
+                targets: 'section div',
+                width: '100%',
+                backgroundColor: (el, i, t) => {
+                    return colors[Math.floor(i / 2)];
+                },
+                delay: anime.stagger(100)
+            })
+            .add({
+                targets: 'section div',
+                width: '95%',
+            })
+            .add({
+                targets: '.ml1 .letter',
+                scale: [0.3, 1],
+                opacity: [0, 1],
+                translateZ: 0,
+                easing: "easeOutExpo",
+                duration: 600,
+                delay: (el, i) => 70 * (i + 1)
+            })
+            .add({
+                targets: '.ml1 .line',
+                scaleX: [0, 1],
+                opacity: [0.5, 1],
+                easing: "easeOutExpo",
+                duration: 700,
+                offset: '-=875',
+                delay: (el, i, l) => 80 * (l - i)
+            })
+
+
+        document.querySelector('h1').addEventListener('mouseover', () => {
+
+        })
+
+    </script>
+</body>
+
+</html>
