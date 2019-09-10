@@ -29,7 +29,6 @@
         <div class="content center">
             <h1 class="ml11 heading">
                 <span class="text-wrapper">
-                    <span class="line line1"></span>
                     <span class="letters">Chase Alexander</span>
                 </span>
             </h1>
@@ -61,7 +60,22 @@
     <p class="reveal">Hello from paragraph!</p>
     <script>
         window.sr = ScrollReveal();
-        sr.reveal('.reveal');
+
+        const left = {
+            origin: 'left',
+            delay: 200,
+            distance: '120px',
+            easing: 'ease-in-out',
+        };
+
+        const right = {
+            origin: 'right',
+            delay: 200,
+            distance: '120px',
+            easing: 'ease-in-out',
+        };
+
+        sr.reveal('.reveal', left);
 
     </script>
 </body>

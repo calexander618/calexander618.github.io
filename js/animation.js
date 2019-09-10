@@ -32,29 +32,6 @@
                 delay: (el, i) => 70 * (i + 1)
             })
             .add({
-                targets: '.ml1 .line',
-                scaleX: [0, 1],
-                opacity: [0.5, 1],
-                easing: "easeOutExpo",
-                duration: 700,
-                offset: '-=875',
-                delay: (el, i, l) => 80 * (l - i)
-            })
-            .add({
-                targets: '.ml11 .line',
-                scaleY: [0, 1],
-                opacity: [0.5, 1],
-                easing: "easeOutExpo",
-                duration: 700
-            })
-            .add({
-                targets: '.ml11 .line',
-                translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
-                easing: "easeOutExpo",
-                duration: 700,
-                delay: 100
-            })
-            .add({
                 targets: '.ml11 .letter',
                 opacity: [0, 1],
                 easing: "easeOutExpo",
