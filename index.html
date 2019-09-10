@@ -3,26 +3,46 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chase Alexander's Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+
     <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="anime.min.js"></script>
+    <script src='./js/anime.min.js'></script>
 </head>
 
 <body>
+    <script>
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+        window.addEventListener('resize', () => {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
+
+    </script>
     <div class="wrapper front">
         <div class="content center">
-            <h1 class="ml11">
+            <h1 class="ml11 heading">
                 <span class="text-wrapper">
                     <span class="line line1"></span>
                     <span class="letters">Chase Alexander</span>
                 </span>
             </h1>
+            <img id="avatar" class="image" src="./images/cropped_chase.png" alt="thisIsChase">
+            <h2 class="heading">Full Stack Developer</h2>
+            <h4 class="heading">University of Missouri - Columbia</h4>
+            <div class="footer row">
+                <div class="column"><a href="#" class="image social fa fa-github fa-3x"></a></div>
+                <div class="column"><a href="#" class="image social fa fa-linkedin"></a></div>
+                <div class="column"><a href="#" class="image social fa fa-envelope"></a></div>
+            </div>
         </div>
-        <div class="arrow center"><i id="arrow" class="fa fa-angle-double-down fa-2x"></i></div>
+        <div class="arrow center"><i id="arrow" class="fa fa-angle-double-down fa-2x icon"></i></div>
     </div>
     <section>
         <div></div>
@@ -36,81 +56,12 @@
         <div></div>
         <div></div>
     </section>
-    <p class="reveal">Hello from paragraph!</p>
+    <script src='./js/animation.js'></script>
 
+    <p class="reveal">Hello from paragraph!</p>
     <script>
         window.sr = ScrollReveal();
         sr.reveal('.reveal');
-
-    </script>
-    <script>
-        const colors = ['#173FBF', '#30639B', '#3CAEA3', '#F6D55C', '#ED553B'];
-
-        var textWrapper = document.querySelector('.ml11 .letters');
-        textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
-
-        var onLoadTimeline = anime.timeline({
-            easing: 'easeOutExpo',
-            duration: 750
-        });
-
-        onLoadTimeline.add({
-                targets: 'section div',
-                width: '100%',
-                backgroundColor: (el, i, t) => {
-                    return colors[Math.floor(i / 2)];
-                },
-                delay: anime.stagger(100)
-            })
-            .add({
-                targets: 'section div',
-                width: '95%',
-                translateX: '2.5%',
-                opacity: 0.6,
-            })
-            .add({
-                targets: '.ml1 .letter',
-                scale: [0.3, 1],
-                opacity: [0, 1],
-                translateZ: 0,
-                easing: "easeOutExpo",
-                duration: 600,
-                delay: (el, i) => 70 * (i + 1)
-            })
-            .add({
-                targets: '.ml1 .line',
-                scaleX: [0, 1],
-                opacity: [0.5, 1],
-                easing: "easeOutExpo",
-                duration: 700,
-                offset: '-=875',
-                delay: (el, i, l) => 80 * (l - i)
-            })
-            .add({
-                targets: '.ml11 .line',
-                scaleY: [0, 1],
-                opacity: [0.5, 1],
-                easing: "easeOutExpo",
-                duration: 700
-            })
-            .add({
-                targets: '.ml11 .line',
-                translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
-                easing: "easeOutExpo",
-                duration: 700,
-                delay: 100
-            }).add({
-                targets: '.ml11 .letter',
-                opacity: [0, 1],
-                easing: "easeOutExpo",
-                duration: 600,
-                offset: '-=775',
-                delay: (el, i) => 34 * (i + 1)
-            });
-
-        document.querySelector('h1').addEventListener('mouseover', () => {
-
-        })
 
     </script>
 </body>
