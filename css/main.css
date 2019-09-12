@@ -5,15 +5,18 @@
 
 body {
     background-color: #323536;
-    overflow-y: auto;
 }
 
 .heading {
-    font-family: 'Source Code Pro', monospace;
-    color: #00FF33;
+    font-family: 'Archivo', sans-serif;
     text-align: center;
-    padding-top: 4vh;
-    padding-bottom: 4vh;
+    padding-top: 4%;
+}
+
+.terminal {
+    font-family: 'Source Code Pro', monospace !important;
+    color: #00FF33;
+    padding-bottom: 3vh;
 }
 
 .center {
@@ -22,12 +25,30 @@ body {
     justify-content: center;
 }
 
-.wrapper {
-    position: absolute;
+.light {
+    background-color: white;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+}
+
+section div {
+    background-color: white;
+    transition: background-color 1s;
+}
+
+.page {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
-    margin: 0 auto;
+}
+
+.wrapper {
+    position: absolute;
     width: 100%;
+    overflow-x: hidden;
+
 }
 
 .front {
@@ -44,22 +65,10 @@ body {
     position: relative;
 }
 
-.ml11 {
+h1 {
     font-weight: 700;
     font-size: 3vmax;
-}
-
-.ml11 .text-wrapper {
-    position: relative;
-    display: inline-block;
-    padding-top: 0.1em;
-    padding-right: 0.05em;
-    padding-bottom: 0.15em;
-}
-
-.ml11 .letter {
-    display: inline-block;
-    line-height: 1em;
+    padding-top: 6% !important;
 }
 
 .image {
@@ -68,19 +77,20 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2%;
 }
 
 #avatar {
-    max-height: 50%;
-    max-width: 50%;
+    max-height: 30vmin;
+    max-width: 30vmin;
     border: 3px solid white;
     border-radius: 500px;
 }
 
 .footer {
     position: absolute;
-    bottom: 10%;
+    bottom: 0;
+    background-color: black;
+    padding-bottom: 5vmax;
     height: 8%;
     width: 100%;
 }
@@ -110,7 +120,6 @@ body {
     color: white;
 }
 
-/* Add a hover effect if you want */
 .fa:hover {
     opacity: 0.7;
 }
@@ -141,6 +150,87 @@ body {
 
 }
 
+.info-box {
+    height: 19%;
+    width: 80%;
+    display: block;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.l-mobile {
+    float: left;
+    clear: left;
+    margin-left: 3.5%;
+}
+
+.r-mobile {
+    float: right;
+    clear: right;
+    margin-right: 3.5%;
+}
+
+#dish {
+    margin-bottom: -10px;
+    max-height: 6vmax;
+    max-width: 6vmax;
+}
+
+#teragram {
+    max-height: 4vmax;
+    max-width: 4vmax;
+    padding-top: 10px;
+}
+
+.info-box:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    content: "";
+    clear: both;
+}
+
+h3 {
+    font-size: 1.1vmax;
+}
+
+
+h5 {
+    padding-top: 1% !important;
+    font-size: 1vmax;
+}
+
+ul {
+    display: inline-block;
+    padding-left: 3vmax;
+    padding-top: 1vmax;
+    padding-bottom: 1vmax;
+}
+
+li {
+    font-size: 1.4vmax;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.proj {
+    font-size: 1.8vmax;
+}
+
+hr {
+    border: 0;
+    height: 0;
+    width: 96%;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin: auto;
+}
+
 @keyframes bounce {
     0% {
         transform: translateY(0);
@@ -155,24 +245,53 @@ body {
     }
 }
 
-section {
-    display: grid;
-    grid-template-columns: repeat(10, auto);
-}
-
-section div {
-    background-color: white;
-    height: calc(var(--vh, 1vh) * 100);
-    transition: background-color 1s;
-}
-
-@media only screen and (min-device-width: 1025px) {
+@media only screen and (min-device-width: 768px) {
     .content {
         width: 40vw;
     }
 
     .heading {
         padding-top: 2vh;
-        padding-bottom: 2vh;
     }
+
+    .info-box {
+        width: 45%;
+        height: 37.5%;
+        overflow: hidden;
+    }
+
+    .left {
+        float: left;
+        clear: left;
+        margin-left: 3.5%;
+    }
+
+    .right {
+        float: right;
+        clear: right;
+        margin-right: 3.5%;
+    }
+
+    ul {
+        padding-top: 1.3vmax;
+        padding-bottom: 1.3vmax;
+    }
+
+    li {
+        font-size: 1.8vmax;
+    }
+
+    h3 {
+        font-size: 1.5vmax;
+    }
+
+
+    h5 {
+        padding-top: 1% !important;
+        font-size: 1.3vmax;
+    }
+
 }
+
+
+/*@media only screen and (min-device-width: 768px) {}*/

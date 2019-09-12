@@ -8,6 +8,7 @@
     <title>Chase Alexander's Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Archivo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
 
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -16,34 +17,42 @@
 
 <body>
     <script>
-        let vh = window.innerHeight * 0.01;
+        let vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) * 0.01;
+
         document.documentElement.style.setProperty('--vh', `${vh}px`);
 
         window.addEventListener('resize', () => {
-            let vh = window.innerHeight * 0.01;
+            let vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0) * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
         });
 
     </script>
-    <div class="wrapper front">
+    <div class="wrapper front page reveal" style="display: grid !important;">
         <div class="content center">
-            <h1 class="ml11 heading">
-                <span class="text-wrapper">
-                    <span class="letters">Chase Alexander</span>
-                </span>
-            </h1>
+            <h1 class="terminal heading">Chase Alexander</h1>
             <img id="avatar" class="image" src="./images/cropped_chase.png" alt="thisIsChase">
-            <h2 class="heading">Full Stack Developer</h2>
-            <h4 class="heading">University of Missouri - Columbia</h4>
+            <h2 class="terminal heading">Full Stack Developer</h2>
+            <h4 class="terminal heading">University of Missouri - Columbia</h4>
             <div class="footer row">
-                <div class="column"><a href="#" class="image social fa fa-github fa-3x"></a></div>
-                <div class="column"><a href="#" class="image social fa fa-linkedin"></a></div>
-                <div class="column"><a href="#" class="image social fa fa-envelope"></a></div>
+                <div class="column"><a href="https://github.com/calexander618" class="image social fa fa-github fa-3x"></a></div>
+                <div class="column"><a href="https://www.linkedin.com/in/chase-alexander-392a13182/" class="image social fa fa-linkedin"></a></div>
+                <div class="column"><a href="mailto:calexander618@gmail.com?subject=Let me hire you!" class="image social fa fa-envelope"></a></div>
             </div>
         </div>
         <div class="arrow center"><i id="arrow" class="fa fa-angle-double-down fa-2x icon"></i></div>
+        <!--
+        <script>
+            document.getElementById('arrow').addEventListener('click', () => {
+                vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+                window.scroll({
+                    top: vh,
+                    behavior: 'smooth'
+                });
+            });
+        </script>
+-->
     </div>
-    <section>
+    <section class="page">
         <div></div>
         <div></div>
         <div></div>
@@ -57,25 +66,82 @@
     </section>
     <script src='./js/animation.js'></script>
 
-    <p class="reveal">Hello from paragraph!</p>
+    <div class="light wrapper page center">
+        <h2 class="heading">Work History</h2>
+        <hr>
+        <div class="left info-box">
+            <img id="dish" class="image left l-mobile" src="images/dish_logo.png">
+            <h3 class="heading right r-mobile">DISH Network - Software Testing Automation Intern</h3>
+            <h5 class="heading right r-mobile">May 2019 - Aug 2019</h5>
+            <ul>
+                <li>Worked in an Agile Development Environment using Git as Version Control</li>
+                <li>Developed Testing Automation Dashboard Built w/ Vue.js, Node.js, and Axios</li>
+                <li>Created REST APIs using Spring Framework with Corresponding JUnit Tests</li>
+            </ul>
+        </div>
+        <div class="right info-box">
+            <img id="teragram" class="image left l-mobile" src="images/teragram_logo.png">
+            <h3 class="heading right r-mobile">Teragram Ballroom - Marketing &amp; Web Design Intern</h3>
+            <h5 class="heading right r-mobile">Jun 2017 - Aug 2017</h5>
+            <ul>
+                <li>Maintained and Designed Front-End Functionalities using Ticketmaster APIs</li>
+                <li>Designed Digital Advertisement Materials using Adobe Photoshop Software</li>
+                <li>Responsible for Maintaining Multiple Social Media Accounts to Promote Venue</li>
+            </ul>
+        </div>
+        <h2 class="heading">Projects</h2>
+        <hr>
+        <div class="left info-box"> <img id="teragram" class="image left l-mobile" src="images/rji_logo.png">
+            <h3 class="heading right r-mobile proj">RJI Image Analysis</h3>
+            <h5 class="heading right r-mobile">May 2019</h5>
+            <ul>
+                <li>Utilizes Open Source Neural Network to Assess Multiple Images’ Aesthetic Scores</li>
+                <li>Deployed Inside of Docker Container &amp; Built using Laravel Framework &amp; LAMP Stack</li>
+                <li>Implements a Queue System with Multiple Workers for Efficient Upload of Large Files</li>
+            </ul>
+        </div>
+        <div class="right info-box"> <img id="teragram" class="image left l-mobile" src="images/mazewhiz_logo.png">
+            <h3 class="heading right r-mobile proj">MazeWhiz</h3>
+            <h5 class="heading right r-mobile">Nov 2018</h5>
+            <ul>
+                <li>Game Built in Java that Allows User to Play and Build Mazes using JavaFX User Interface</li>
+                <li>Mazes Designed by Users are Saved as Text Files with Integers Representing Different Tiles</li>
+                <li>Applies Key Concepts of Object-Oriented Programming i.e. Inheritance &amp; Polymorphism</li>
+            </ul>
+        </div>
+    </div>
     <script>
         window.sr = ScrollReveal();
 
         const left = {
             origin: 'left',
-            delay: 200,
-            distance: '120px',
+            delay: 300,
+            duration: 1000,
+            distance: '30%',
             easing: 'ease-in-out',
         };
 
         const right = {
             origin: 'right',
-            delay: 200,
-            distance: '120px',
+            delay: 300,
+            duration: 1000,
+            distance: '30%',
             easing: 'ease-in-out',
         };
 
-        sr.reveal('.reveal', left);
+        const delay = {
+            delay: 300,
+            duration: 1000,
+            distance: '30%',
+            easing: 'ease-in-out',
+        };
+
+        sr.reveal('.reveal', delay);
+        sr.reveal('.wrapper > h2', delay);
+        sr.reveal('hr', delay);
+
+        sr.reveal('.left.info-box', left);
+        sr.reveal('.right.info-box', right);
 
     </script>
 </body>
