@@ -174,16 +174,10 @@ h1 {
     margin-right: 3.5%;
 }
 
-#dish {
-    margin-bottom: -10px;
-    max-height: 6vmax;
-    max-width: 6vmax;
-}
-
-#teragram {
+.logo {
+    padding-top: 0.7vh;
     max-height: 4vmax;
     max-width: 4vmax;
-    padding-top: 10px;
 }
 
 .info-box:hover {
@@ -208,14 +202,15 @@ h5 {
 ul {
     display: inline-block;
     padding-left: 3vmax;
+    padding-right: 1vmax;
     padding-top: 1vmax;
     padding-bottom: 1vmax;
 }
 
 li {
-    font-size: 1.4vmax;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    font-size: 65%;
+    margin-top: 0.2vh;
+    margin-bottom: 0.2vh;
 }
 
 .proj {
@@ -273,12 +268,12 @@ hr {
     }
 
     ul {
-        padding-top: 1.3vmax;
-        padding-bottom: 1.3vmax;
+        padding-top: 1vmax;
+        padding-bottom: 1vmax;
     }
 
     li {
-        font-size: 1.8vmax;
+        font-size: 130%;
     }
 
     h3 {
@@ -294,4 +289,3 @@ hr {
 }
 
 
-/*@media only screen and (min-device-width: 768px) {}*/
