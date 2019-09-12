@@ -208,6 +208,7 @@ ul {
 }
 
 li {
+    font-family: 'Archivo', sans-serif;
     font-size: 65%;
     margin-top: 0.2vh;
     margin-bottom: 0.2vh;
@@ -287,5 +288,3 @@ hr {
     }
 
 }
-
-
